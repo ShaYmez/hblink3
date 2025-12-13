@@ -1,12 +1,10 @@
 #!/bin/sh
-cd /opt/hblink3 || exit
 
-if [ "$PARROT_ENABLE" = 1 ]
-then
-     echo 'Starting HBlink with Parrot.....'
-     python /opt/hblink3/bridge.py -c hblink.cfg -r rules.py &
-     python /opt/hblink3/playback.py -c playback.cfg
+if [ "$PARROT_ENABLE" = 1 ]; then
+    echo 'Starting HBlink with Parrot.....'
+    python bridge.py -c hblink.cfg -r rules.py &
+    python playback.py -c playback.cfg
 else
-     echo 'Starting HBlink.....'
-     python /opt/hblink3/bridge.py -c hblink.cfg -r rules.py
+    echo 'Starting HBlink.....'
+    exec python bridge.py -c hblink.cfg -r rules.py
 fi
