@@ -1,7 +1,7 @@
 #!/bin/sh
-cd /opt/hblink3
+cd /opt/hblink3 || exit
 
-if [ "$PARROT_ENABLE" == 1 ]
+if [ "$PARROT_ENABLE" = 1 ]
 then
      echo 'Starting HBlink with Parrot.....'
      python /opt/hblink3/bridge.py -c hblink.cfg -r rules.py &
